@@ -71,7 +71,7 @@ def write_current_release(current_release):
 def rollback_release(to_release):
     release_into = "%s/%s" % (release_dir, to_release)
     run("ln -nfs %s %s" % (release_into, current_release))
-    run('sudo service php5-fpm reload')
+    run('sudo service php7.1-fpm reload')
 
 def init():
     if not exists(release_dir):
@@ -124,5 +124,5 @@ def swap_symlinks():
 
 
     # Reload PHP-FPM gracefully
-    run('sudo service php5-fpm reload')
+    run('sudo service php7.1-fpm reload')
 
